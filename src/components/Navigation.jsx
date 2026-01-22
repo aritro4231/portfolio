@@ -1,0 +1,100 @@
+import { useEffect, useState } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "../lib/theme-provider";
+
+export default function Navigation({ activeSection, onSectionChange }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  const navItems = ["home", "projects", "about", "contact"];
+
+  const handleNavClick = (item) => {
+    onSectionChange(item);
+    setIsMenuOpen(false);
+    document.getElementById(item)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  if (!mounted) return null;
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Brand */}
+          <button
+            onClick={() => handleNavClick("home")}
+            className="brand-font text-2xl font-bold text-accent hover:opacity-80 transition-opacity"
+          >
+            Aritro Sengupta
+          </button>
+
+          {/* Desktop */}
+          <div className="hidden md:flex gap-8 items-center">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => handleNavClick(item)}
+                className={`capitalize transition-colors font-medium text-lg ${
+                  activeSection === item
+                    ? "text-accent"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-secondary transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+          </div>
+
+          {/* Mobile */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-secondary transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+
+            <button
+              className="p-2"
+              onClick={() => setIsMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="md:hidden pb-4 flex flex-col gap-3 border-t border-border pt-4">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => handleNavClick(item)}
+                className={`capitalize text-left px-2 py-2 rounded transition-colors text-lg ${
+                  activeSection === item
+                    ? "text-accent bg-accent/10"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+}
