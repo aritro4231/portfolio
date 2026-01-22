@@ -50,7 +50,7 @@ export default function HeroSection() {
           <div>
             <p className="text-accent font-medium text-xl">Hi, I’m Aritro!</p>
 
-            <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl whitespace-nowrap">
+            <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl whitespace-normal break-words sm:whitespace-nowrap">
               <span
                 className={`inline-block transition-all duration-200 ${
                   switching ? "opacity-0 -translate-y-1" : "opacity-100 translate-y-0"
