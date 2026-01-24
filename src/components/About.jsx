@@ -40,7 +40,7 @@ export default function About() {
             and enjoy{" "}
             <span className="font-semibold text-accent">DJing</span>, both feed my love for{" "}
             <span className="font-semibold text-accent">
-              problem-solving and creativity)
+              problem-solving and creativity
             </span>
             !
           </p>
