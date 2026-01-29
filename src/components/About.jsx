@@ -62,6 +62,7 @@ export default function About() {
               "Docker",
               "Git/GitHub",
               "Pandas",
+              "Testing",
             ].map((skill) => (
               <div
                 key={skill}
