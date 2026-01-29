@@ -1,16 +1,4 @@
-import { Github, Mail } from "lucide-react";
-import discordLogo from "../assets/discord-logo-peach.png";
-
-function DiscordIcon() {
-  return (
-    <img
-      src={discordLogo}
-      alt=""
-      className="h-6 w-6 object-contain"
-      aria-hidden="true"
-    />
-  );
-}
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const CONTACTS = [
   {
@@ -26,10 +14,10 @@ const CONTACTS = [
     Icon: Github,
   },
   {
-    label: "Discord",
-    value: "pogothecreator",
-    href: "https://discord.com/users/505322546292457504",
-    Icon: DiscordIcon,
+    label: "LinkedIn",
+    value: "linkedin.com/in/aritro-sengupta",
+    href: "https://www.linkedin.com/in/aritro-sengupta/",
+    Icon: Linkedin,
   },
 ];
 
