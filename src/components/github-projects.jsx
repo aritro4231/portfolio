@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ExternalLink, Star } from "lucide-react";
 
 const GITHUB_USERNAME = "aritro4231";
-const MAX_REPOS = 6;
+const MAX_REPOS = 3;
 
 function formatLang(lang) {
   return lang ?? "Unknown";
