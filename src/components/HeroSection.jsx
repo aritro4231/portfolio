@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import portraitImg from "../assets/portrait.jpeg";
 
 const ROLES = [
-  "CS Junior @ Virginia Tech",
+  "CS Senior @ Virginia Tech",
   "Full-Stack Web Developer",
   "Undergraduate AI Researcher"
 ];
